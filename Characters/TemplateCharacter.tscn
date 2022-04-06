@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://GFX/PNG/Man Red/manRed_stand.png" type="Texture" id=1]
+[ext_resource path="res://Characters/TemplateCharacter.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 23.5062
+
+[sub_resource type="OccluderPolygon2D" id=2]
+cull_mode = 1
+polygon = PoolVector2Array( -6.47678, -21.3359, 2.33001, -21.4021, 6.70029, -17.0981, 8.35571, -7.6291, 12.0638, -2.19935, 12.13, 0.846603, 8.35571, 8.19663, 6.56786, 17.5331, 3.74023, 21.3973, -6.92316, 21.4675, -11.0622, 16.8373, -11.5533, 7.99794, -14.4998, 0.281013, -12.0444, -6.52391, -11.2727, -16.2051 )
+
+[node name="TemplateCharacter" type="KinematicBody2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -1.824, 0.140305 )
+shape = SubResource( 1 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 2 )

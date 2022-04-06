@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Interfaces/VisionMode.tscn" type="PackedScene" id=3]
+
+[node name="TemplateLevel" type="Node2D"]
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Navigation2D"]
+tile_set = ExtResource( 1 )
+collision_layer = 2
+collision_mask = 5
+format = 1
+tile_data = PoolIntArray( -589837, 0, 0, -589836, 0, 2, -589835, 0, 2, -589834, 0, 2, -589833, 0, 2, -589832, 0, 2, -589831, 0, 2, -589830, 0, 2, -589829, 0, 1, -524301, 0, 65538, -524300, 2, 1, -524299, 2, 1, -524298, 2, 1, -524297, 2, 1, -524296, 2, 1, -524295, 2, 1, -524294, 2, 1, -524293, 0, 65538, -458765, 0, 65538, -458764, 2, 1, -458763, 2, 1, -458762, 2, 1, -458761, 2, 1, -458760, 2, 1, -458759, 2, 1, -458758, 2, 1, -458757, 0, 65538, -393229, 0, 65538, -393228, 2, 1, -393227, 2, 1, -393226, 2, 3, -393225, 2, 5, -393224, 2, 5, -393223, 2, 1, -393222, 2, 1, -393221, 0, 65538, -327693, 0, 65538, -327692, 2, 1, -327691, 2, 1, -327690, 2, 1, -327689, 2, 1, -327688, 2, 1, -327687, 2, 1, -327686, 2, 1, -327685, 0, 65538, -262157, 0, 65536, -262156, 0, 2, -262155, 0, 2, -262154, 0, 2, -262153, 0, 2, -262152, 0, 2, -262151, 0, 2, -262150, 0, 2, -262149, 0, 65537 )
+
+[node name="Destinations" type="Node" parent="Navigation2D"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -725.65, -466.308 )
+
+[node name="VisionMode" parent="." groups=["Interface"] instance=ExtResource( 3 )]
+
+[node name="SecurityCameras" type="Node" parent="."]
+
+[node name="Guards" type="Node" parent="."]
+
+[editable path="Player"]
