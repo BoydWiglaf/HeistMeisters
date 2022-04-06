@@ -1,19 +1,35 @@
 extends CanvasModulate
 
 
-const DARK = Color("4b4343")
+const DARK = Color("111111")
 const NIGHT_VISION = Color("13e407")
 
+var has_cooldown = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	visible = true
+	color = DARK
 
-func vision_mode():
-	if color == DARK:
-		color = NIGHT_VISION
-	else:
-		color = DARK
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func cycle_vision_mode():
+	if not has_cooldown:	
+		if color != NIGHT_VISION:
+			night_mode()
+		else:
+			dark_mode()
+		has_cooldown = true
+		$Timer.start()
+
+func night_mode():
+	$AudioStreamPlayer2D.stream = load("res://SFX/nightvision.wav")
+	$AudioStreamPlayer2D.play()
+	color = NIGHT_VISION
+	
+func dark_mode():
+	$AudioStreamPlayer2D.stream = load("res://SFX/nightvision_off.wav")
+	$AudioStreamPlayer2D.play()
+	color = DARK
+
+
+func _on_Timer_timeout():
+	has_cooldown = false

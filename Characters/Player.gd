@@ -13,7 +13,7 @@ func _input(event):
 		$Torch.enabled = !$Torch.enabled
 	
 	if Input.is_action_just_pressed("toggle_night_vision"):
-		get_tree().call_group("Interface", "vision_mode")
+		get_tree().call_group("Interface", "cycle_vision_mode")
 
 # -------- Scene Functions --------
 
