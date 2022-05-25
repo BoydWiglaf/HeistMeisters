@@ -826,7 +826,7 @@ points = PoolVector2Array( 64, 0, 64, 64, 64, 64, 64, 64, 32, 64, 32, 0, 64, 0, 
 "shape": SubResource( 99 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
-0/z_index = 0
+0/z_index = 2
 1/name = "Floor1"
 1/texture = ExtResource( 1 )
 1/tex_offset = Vector2( 0, 0 )

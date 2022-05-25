@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://GFX/Interface/Fonts/kenvector_future.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Interfaces/UI_Theme.tres" type="Theme" id=2]
+[ext_resource path="res://GFX/Interface/PNG/metalPanel_red.png" type="Texture" id=3]
+[ext_resource path="res://GFX/Interface/PNG/barHorizontal_white_mid.png" type="Texture" id=4]
+[ext_resource path="res://GFX/Interface/PNG/barHorizontal_white_left.png" type="Texture" id=5]
+[ext_resource path="res://GFX/Interface/PNG/barHorizontal_white_right.png" type="Texture" id=6]
+[ext_resource path="res://GFX/Interface/Fonts/kenvector_future_thin.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Levels/MainMenue.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 52
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 7 )
+
+[node name="MainMenue" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 8 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
+margin_left = 440.0
+margin_top = 160.0
+margin_right = 840.0
+margin_bottom = 560.0
+rect_min_size = Vector2( 400, 400 )
+texture = ExtResource( 3 )
+patch_margin_left = 15
+patch_margin_top = 40
+patch_margin_right = 15
+patch_margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 30.0
+margin_right = -30.0
+margin_bottom = -30.0
+custom_constants/separation = 13
+
+[node name="Label" type="Label" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_right = 340.0
+margin_bottom = 27.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Welcome To"
+align = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 40.0
+margin_right = 340.0
+margin_bottom = 161.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Heist Meisters"
+align = 1
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 174.0
+margin_right = 340.0
+margin_bottom = 186.0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/NinePatchRect/VBoxContainer/HBoxContainer"]
+modulate = Color( 0.486275, 0.486275, 0.486275, 1 )
+margin_left = 78.0
+margin_right = 90.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 12, 12 )
+texture = ExtResource( 5 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/NinePatchRect/VBoxContainer/HBoxContainer"]
+modulate = Color( 0.486275, 0.486275, 0.486275, 1 )
+margin_left = 90.0
+margin_right = 250.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 160, 12 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="TextureRect3" type="TextureRect" parent="CenterContainer/NinePatchRect/VBoxContainer/HBoxContainer"]
+modulate = Color( 0.486275, 0.486275, 0.486275, 1 )
+margin_left = 250.0
+margin_right = 262.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 12, 12 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="PlayButton" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 199.0
+margin_right = 340.0
+margin_bottom = 222.0
+custom_fonts/font = SubResource( 4 )
+text = "Play Game"
+flat = true
+
+[node name="TutorialButton" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 235.0
+margin_right = 340.0
+margin_bottom = 258.0
+custom_fonts/font = SubResource( 4 )
+text = "Tutorial"
+flat = true
+
+[node name="QuitButton" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer"]
+margin_top = 271.0
+margin_right = 340.0
+margin_bottom = 294.0
+custom_fonts/font = SubResource( 3 )
+text = "Quit Game"
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/TutorialButton" to="." method="_on_TutorialButton_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

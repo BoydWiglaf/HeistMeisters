@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Interfaces/UI_Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Levels/Exit.gd" type="Script" id=2]
+[ext_resource path="res://Interfaces/VictoryScreen.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Exit" type="ColorRect"]
+margin_right = 100.0
+margin_bottom = 50.0
+theme = ExtResource( 1 )
+color = Color( 0.916134, 0.51731, 0.9375, 0.607843 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -13.5
+margin_right = 34.0
+margin_bottom = 13.5
+custom_colors/font_color = Color( 0, 1, 0.733333, 1 )
+text = "exit"
+align = 1
+valign = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 50, 25 )
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+scale = Vector2( 4.5, 2 )
+shape = SubResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VictoryScreen" parent="CanvasLayer" instance=ExtResource( 3 )]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
